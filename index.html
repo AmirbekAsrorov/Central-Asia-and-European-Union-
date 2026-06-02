@@ -1,0 +1,1844 @@
+bash
+cat > /home/claude/cayouthforum/ca-eu-forum-2026.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ════════════════════════════════════════════════
+  ★ SITE TITLE & DESCRIPTION — change these two lines
+  ════════════════════════════════════════════════ -->
+<title>CA–EU Youth Forum 2026 | Samarkand</title>
+<meta name="description" content="Central Asia – European Union Youth Forum 2026. Samarkand, Uzbekistan. August 13–14, 2026.">
+
+<!-- Social media preview image (shows when you share the link) -->
+<!-- ★ Change the URL below to your own image (1200×630 px recommended) -->
+<meta property="og:image" content="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1200&q=80">
+<meta property="og:title" content="CA–EU Youth Forum 2026 | Samarkand">
+<meta property="og:description" content="Central Asia – EU Youth Forum. August 13–14, 2026, Samarkand, Uzbekistan.">
+
+<!-- ════════════════════════════════════════════════
+  Google Fonts — delete both lines if you want to use system fonts
+  ════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ════════════════════════════════════════════════
+  ANALYTICS — paste your Google Analytics or Yandex Metrika code here
+  ════════════════════════════════════════════════ -->
+<!-- PASTE ANALYTICS CODE HERE -->
+
+<style>
+/* ════════════════════════════════════════════════════
+   🎨 COLOUR PALETTE — change only values after the colon
+   These 8 variables control ALL colours on the site.
+   ════════════════════════════════════════════════════
+
+   --c-navy      : dark navy  → navbar, footer, dark backgrounds
+   --c-blue      : medium blue → links, accents
+   --c-gold      : gold       → main accent, buttons, highlights
+   --c-gold-light: light gold  → hover states
+   --c-cream     : warm cream  → alternate section background
+   --c-white     : white       → main background
+   --c-gray      : medium gray → body text secondary
+   --c-text      : near-black  → main body text
+*/
+:root {
+  --c-navy:       #0D2240;
+  --c-blue:       #1A5FAF;
+  --c-gold:       #D4A94A;
+  --c-gold-light: #F0CC7A;
+  --c-cream:      #F5F1E8;
+  --c-white:      #FFFFFF;
+  --c-gray:       #5A6475;
+  --c-gray-light: #EEF0F4;
+  --c-text:       #1A202C;
+
+  /* Hero dark overlay on top of background photo.
+     Lower the number (e.g. 0.50) to show more of the photo.
+     Raise it (e.g. 0.85) to make it darker.               */
+  --c-hero-overlay-from: rgba(8,20,48,0.70);
+  --c-hero-overlay-to:   rgba(15,40,80,0.50);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Onest', system-ui, sans-serif;
+  --shadow:       0 4px 32px rgba(11,30,61,0.12);
+}
+
+/* ── Reset ── */
+*  { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--font-body); color:var(--c-text); background:var(--c-white); line-height:1.7; overflow-x:hidden; }
+
+/* ════════════════════════════════════════════════
+   🔵 NAVIGATION BAR
+   ════════════════════════════════════════════════ */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(13,34,64,0.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(212,169,74,0.22);
+  transition:background 0.3s;
+}
+.nav-inner { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:68px; }
+.nav-logo  { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo-badge { width:40px; height:40px; background:var(--c-gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:700; color:var(--c-navy); line-height:1.2; text-align:center; }
+.nav-logo-text  { color:#fff; font-size:13px; font-weight:500; line-height:1.3; }
+.nav-logo-text span { color:var(--c-gold); display:block; font-size:11px; font-weight:400; }
+.nav-links { display:flex; gap:2px; list-style:none; align-items:center; }
+.nav-links a { color:rgba(255,255,255,0.82); text-decoration:none; font-size:14px; padding:6px 11px; border-radius:6px; transition:all 0.2s; }
+.nav-links a:hover { color:var(--c-gold); background:rgba(212,169,74,0.10); }
+.nav-cta { background:var(--c-gold) !important; color:var(--c-navy) !important; font-weight:700 !important; border-radius:8px !important; padding:8px 18px !important; }
+.nav-cta:hover { background:var(--c-gold-light) !important; }
+.nav-lang { display:flex; gap:4px; margin-left:14px; }
+.nav-lang button { background:none; border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.7); font-size:12px; font-weight:500; padding:4px 8px; border-radius:4px; cursor:pointer; transition:all 0.2s; }
+.nav-lang button.active, .nav-lang button:hover { background:var(--c-gold); color:var(--c-navy); border-color:var(--c-gold); }
+.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { width:24px; height:2px; background:white; border-radius:2px; }
+
+/* ════════════════════════════════════════════════
+   🖼️ HERO SECTION — BACKGROUND PHOTO
+   ════════════════════════════════════════════════
+   HOW TO CHANGE THE BACKGROUND PHOTO:
+   1. Upload your photo to Google Drive, Dropbox, or any image host
+   2. Get the direct URL (must end in .jpg / .jpeg / .png / .webp)
+   3. Replace the URL inside url('...') below with your URL
+
+   EXAMPLE with your own file:
+      background-image: url('https://yoursite.com/registan.jpg');
+
+   POSITION: "center 35%" means centred horizontally,
+   slightly above the vertical centre. Change 35% to:
+      "center top"    → show top of photo
+      "center center" → exact centre
+      "center 60%"    → lower part of photo
+*/
+.hero {
+  min-height:100vh;
+  position:relative; overflow:hidden;
+  display:flex; align-items:center;
+  padding-top:68px;
+
+  /* ★★★ CHANGE PHOTO HERE ★★★ */
+  background-image: url('https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1600&q=80&fit=crop');
+  background-size:cover;
+  background-position:center 35%;
+  background-repeat:no-repeat;
+  /* ★★★ END PHOTO ★★★ */
+}
+.hero::before { content:''; position:absolute; inset:0; z-index:0; background:linear-gradient(135deg, var(--c-hero-overlay-from) 0%, var(--c-hero-overlay-to) 100%); }
+.hero::after  { content:''; position:absolute; bottom:0; left:0; right:0; z-index:1; height:120px; background:linear-gradient(to bottom, transparent, var(--c-navy)); }
+.hero-stars   { position:absolute; inset:0; z-index:1; pointer-events:none; background-image: radial-gradient(1.5px 1.5px at 15% 25%, rgba(255,204,0,0.55) 0%,transparent 100%), radial-gradient(1px 1px at 42% 14%, rgba(255,255,255,0.45) 0%,transparent 100%), radial-gradient(1.5px 1.5px at 72% 30%, rgba(255,204,0,0.38) 0%,transparent 100%), radial-gradient(1px 1px at 87% 62%, rgba(255,255,255,0.38) 0%,transparent 100%), radial-gradient(1px 1px at 28% 72%, rgba(255,255,255,0.28) 0%,transparent 100%), radial-gradient(1px 1px at 62% 82%, rgba(255,204,0,0.44) 0%,transparent 100%); }
+.hero-inner   { max-width:1200px; margin:0 auto; padding:5rem 2rem 9rem; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; position:relative; z-index:2; width:100%; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(212,169,74,0.18); border:1px solid rgba(212,169,74,0.45); border-radius:30px; padding:6px 16px; font-size:12px; font-weight:600; color:var(--c-gold-light); letter-spacing:1.4px; text-transform:uppercase; margin-bottom:1.5rem; }
+.hero-eyebrow-dot { width:6px; height:6px; background:var(--c-gold); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+.hero-title    { font-family:var(--font-display); font-size:clamp(2.1rem,4.2vw,3.6rem); font-weight:900; color:#fff; line-height:1.1; margin-bottom:1.2rem; text-shadow:0 2px 20px rgba(0,0,0,0.4); }
+.hero-title .accent { color:var(--c-gold); }
+.hero-subtitle { font-size:1.05rem; color:rgba(255,255,255,0.88); margin-bottom:2rem; line-height:1.75; text-shadow:0 1px 8px rgba(0,0,0,0.4); }
+.hero-meta     { display:flex; gap:1.4rem; margin-bottom:2.4rem; flex-wrap:wrap; }
+.hero-meta-item { display:flex; align-items:center; gap:8px; color:rgba(255,255,255,0.9); font-size:0.9rem; }
+.hero-meta-icon { width:32px; height:32px; background:rgba(212,169,74,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; }
+.hero-actions  { display:flex; gap:1rem; flex-wrap:wrap; }
+.btn-primary   { background:var(--c-gold); color:var(--c-navy); border:none; padding:14px 28px; border-radius:10px; font-family:var(--font-body); font-size:0.95rem; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; transition:all 0.25s; }
+.btn-primary:hover { background:var(--c-gold-light); transform:translateY(-2px); box-shadow:0 8px 24px rgba(212,169,74,0.32); }
+.btn-secondary { background:rgba(255,255,255,0.12); color:#fff; border:1.5px solid rgba(255,255,255,0.45); padding:14px 28px; border-radius:10px; font-family:var(--font-body); font-size:0.95rem; font-weight:500; cursor:pointer; text-decoration:none; display:inline-block; transition:all 0.25s; backdrop-filter:blur(4px); }
+.btn-secondary:hover { border-color:white; background:rgba(255,255,255,0.18); }
+.hero-visual { display:flex; justify-content:center; align-items:center; }
+.hero-card    { background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.22); border-radius:20px; padding:2rem; backdrop-filter:blur(16px); width:100%; max-width:400px; box-shadow:0 8px 40px rgba(0,0,0,0.28); }
+.hero-card-flags { display:flex; gap:8px; margin-bottom:1.5rem; }
+.flag     { width:42px; height:28px; border-radius:5px; overflow:hidden; display:flex; flex-direction:column; }
+.flag-uz  { background:linear-gradient(to bottom,#1EB6E8 33.3%,#fff 33.3%,#fff 66.6%,#44AE42 66.6%); position:relative; }
+.flag-uz::after { content:''; position:absolute; left:4px; top:5px; width:8px; height:8px; background:white; border-radius:50%; }
+.flag-eu  { background:#003399; display:flex; align-items:center; justify-content:center; font-size:11px; color:#FFCC00; font-weight:700; }
+.flag-kz  { background:#00AFCA; }
+.flag-kg  { background:#E8112D; }
+.flag-tj  { background:linear-gradient(to bottom,#C30017 33.3%,#fff 33.3%,#fff 66.6%,#006600 66.6%); }
+.flag-tm  { background:#30A956; }
+.hero-card-stat .num   { font-family:var(--font-display); font-size:2.8rem; font-weight:900; color:var(--c-gold); line-height:1; text-align:center; }
+.hero-card-stat .label { color:rgba(255,255,255,0.75); font-size:0.85rem; text-align:center; }
+.hero-card-divider     { border:none; border-top:1px solid rgba(255,255,255,0.12); margin:1rem 0; }
+.hero-card-dates  { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.hero-date-box    { background:rgba(212,169,74,0.15); border:1px solid rgba(212,169,74,0.3); border-radius:10px; padding:12px; text-align:center; }
+.hero-date-box .day   { font-family:var(--font-display); font-size:1.8rem; font-weight:700; color:var(--c-gold); line-height:1; }
+.hero-date-box .month { color:rgba(255,255,255,0.7); font-size:0.8rem; margin-top:2px; }
+.countdown       { margin-top:1.5rem; background:rgba(0,0,0,0.22); border-radius:12px; padding:1rem; text-align:center; }
+.countdown-label { color:rgba(255,255,255,0.58); font-size:0.78rem; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; }
+.countdown-nums  { display:flex; gap:8px; justify-content:center; }
+.countdown-unit  { background:rgba(255,255,255,0.1); border-radius:8px; padding:8px 10px; min-width:50px; }
+.countdown-unit .n { font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:white; line-height:1; }
+.countdown-unit .l { font-size:0.63rem; color:rgba(255,255,255,0.52); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+.hero-scroll  { position:absolute; bottom:5.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; z-index:3; color:rgba(255,255,255,0.5); font-size:0.73rem; letter-spacing:1px; text-transform:uppercase; }
+.scroll-arrow { width:22px; height:22px; border-right:2px solid rgba(255,255,255,0.38); border-bottom:2px solid rgba(255,255,255,0.38); transform:rotate(45deg); animation:bounce 1.8s infinite; }
+@keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(6px)} }
+
+/* ════════════════════════════════════════════════
+   SHARED SECTION STYLES
+   ════════════════════════════════════════════════ */
+section     { padding:6rem 1.5rem; }
+.section-inner    { max-width:1200px; margin:0 auto; }
+.section-label    { display:inline-block; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--c-gold); margin-bottom:0.7rem; }
+.section-title    { font-family:var(--font-display); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:700; color:var(--c-navy); line-height:1.2; margin-bottom:1rem; }
+.section-subtitle { font-size:1.05rem; color:var(--c-gray); max-width:580px; line-height:1.7; }
+.text-center      { text-align:center; }
+.text-center .section-subtitle { margin:0 auto; }
+
+/* ════════════════════════════════════════════════
+   📊 STATS BAR
+   ════════════════════════════════════════════════ */
+.stats-bar  { background:var(--c-navy); padding:3rem 1.5rem; }
+.stats-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.stat-item  { text-align:center; padding:1.5rem; }
+.stat-num   { font-family:var(--font-display); font-size:2.8rem; font-weight:900; color:var(--c-gold); line-height:1; }
+.stat-label { color:rgba(255,255,255,0.72); font-size:0.9rem; margin-top:6px; }
+
+/* ════════════════════════════════════════════════
+   ℹ️ ABOUT SECTION
+   ════════════════════════════════════════════════ */
+.about { background:var(--c-cream); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.about-image-block { position:relative; }
+/* ════════════════════════════════════════════════
+   🖼️ ABOUT SECTION PHOTO
+   ════════════════════════════════════════════════
+   HOW TO CHANGE: add style="background-image:url('YOUR_URL')"
+   to the div with class "about-img-placeholder" in the HTML below.
+   Example:
+     <div class="about-img-placeholder" style="background-image:url('https://...');background-size:cover;background-position:center">
+   Then delete the <div class="about-img-text"> block inside it.
+*/
+.about-img-placeholder { width:100%; aspect-ratio:4/3; background:linear-gradient(135deg,var(--c-navy) 0%,#1A5FAF 100%); border-radius:20px; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; }
+.about-img-text { text-align:center; color:white; z-index:1; padding:2rem; }
+.about-img-text .big { font-family:var(--font-display); font-size:3rem; font-weight:900; color:var(--c-gold); }
+.about-img-text p    { font-size:0.9rem; color:rgba(255,255,255,0.72); margin-top:4px; }
+.about-badge { position:absolute; bottom:-20px; right:-20px; background:var(--c-gold); border-radius:16px; padding:16px 20px; text-align:center; box-shadow:var(--shadow); }
+.about-badge .b-num   { font-family:var(--font-display); font-size:1.8rem; font-weight:900; color:var(--c-navy); line-height:1; }
+.about-badge .b-label { font-size:0.75rem; color:rgba(11,30,61,0.72); margin-top:2px; }
+.about-features { display:flex; flex-direction:column; gap:1.2rem; margin-top:2rem; }
+.feature-item { display:flex; align-items:flex-start; gap:1rem; padding:1rem 1.2rem; background:white; border-radius:12px; border:1px solid rgba(0,0,0,0.06); }
+.feature-icon { width:40px; height:40px; flex-shrink:0; background:rgba(212,169,74,0.12); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+.feature-text h4 { font-weight:600; font-size:0.95rem; margin-bottom:2px; color:var(--c-navy); }
+.feature-text p  { font-size:0.85rem; color:var(--c-gray); line-height:1.5; }
+
+/* ════════════════════════════════════════════════
+   📅 PROGRAM SECTION
+   ════════════════════════════════════════════════ */
+.program { background:white; }
+.program-tabs { display:flex; gap:8px; margin-bottom:3rem; border-bottom:2px solid var(--c-gray-light); }
+.tab-btn { background:none; border:none; cursor:pointer; font-family:var(--font-body); font-size:0.95rem; font-weight:500; color:var(--c-gray); padding:10px 20px; border-radius:8px 8px 0 0; transition:all 0.2s; position:relative; }
+.tab-btn.active { color:var(--c-navy); font-weight:700; }
+.tab-btn.active::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:2px; background:var(--c-gold); border-radius:2px 2px 0 0; }
+.program-day { display:none; }
+.program-day.active { display:block; }
+.program-item { display:grid; grid-template-columns:80px 1fr; gap:1.5rem; margin-bottom:1rem; padding:1.2rem; border-radius:12px; transition:background 0.2s; }
+.program-item:hover { background:var(--c-cream); }
+.program-time { font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--c-gold); padding-top:2px; }
+.program-content h4 { font-weight:600; color:var(--c-navy); margin-bottom:4px; }
+.program-content p  { font-size:0.88rem; color:var(--c-gray); }
+/* Program tag colours — change class name to change colour:
+   tag-keynote  = gold   (opening, key sessions)
+   tag-panel    = blue   (panels, discussions)
+   tag-workshop = green  (workshops, masterclasses)
+   tag-break    = gray   (breaks, registration)
+   tag-networking = purple (networking, cultural events) */
+.program-tag { display:inline-block; font-size:0.72rem; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; margin-bottom:6px; }
+.tag-keynote    { background:rgba(212,169,74,0.14); color:#7A5C10; }
+.tag-panel      { background:rgba(26,95,175,0.10);  color:#1A5FAF; }
+.tag-workshop   { background:rgba(16,185,129,0.10); color:#065F46; }
+.tag-break      { background:rgba(90,100,117,0.10); color:#4B5563; }
+.tag-networking { background:rgba(139,92,246,0.10); color:#5B21B6; }
+
+/* ════════════════════════════════════════════════
+   🎤 SPEAKERS SECTION
+   ════════════════════════════════════════════════ */
+.speakers { background:var(--c-cream); }
+.speakers-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.5rem; }
+.speaker-card  { background:white; border-radius:16px; overflow:hidden; border:1px solid rgba(0,0,0,0.06); transition:all 0.3s; }
+.speaker-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+/* ════════════════════════════════════════════════
+   🖼️ SPEAKER PHOTO
+   ════════════════════════════════════════════════
+   HOW TO ADD A REAL PHOTO for a speaker:
+   In the HTML find the speaker's <div class="speaker-photo">
+   and add a style attribute like this:
+     <div class="speaker-photo" style="background-image:url('photo.jpg');background-size:cover;background-position:center top;font-size:0">
+   Setting font-size:0 hides the emoji placeholder.
+*/
+.speaker-photo { aspect-ratio:1; background:linear-gradient(135deg,var(--c-navy) 0%,#1A5FAF 100%); display:flex; align-items:center; justify-content:center; font-size:3rem; position:relative; overflow:hidden; }
+.speaker-photo::after { content:''; position:absolute; bottom:0; left:0; right:0; height:40%; background:linear-gradient(to top,rgba(11,30,61,0.5),transparent); }
+.speaker-body    { padding:1.2rem; }
+.speaker-name    { font-weight:700; color:var(--c-navy); font-size:1rem; margin-bottom:2px; }
+.speaker-role    { font-size:0.82rem; color:var(--c-gray); margin-bottom:8px; }
+.speaker-country { display:inline-flex; align-items:center; gap:5px; font-size:0.78rem; color:var(--c-gold); font-weight:500; }
+
+/* ════════════════════════════════════════════════
+   📋 REGISTRATION / APPLICATION FORM
+   ════════════════════════════════════════════════ */
+.registration { background:white; }
+.reg-layout   { display:grid; grid-template-columns:1fr 1.2fr; gap:4rem; align-items:start; }
+.reg-benefits { list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:1.5rem; }
+.reg-benefits li { display:flex; align-items:flex-start; gap:10px; font-size:0.9rem; color:#374151; }
+.reg-benefits li::before { content:'✦'; color:var(--c-gold); font-size:0.8rem; margin-top:3px; flex-shrink:0; }
+.reg-deadline     { margin-top:2rem; background:var(--c-navy); border-radius:12px; padding:1.2rem 1.5rem; color:white; }
+.reg-deadline .d-label { font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.62); }
+.reg-deadline .d-date  { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--c-gold); }
+.reg-form { background:var(--c-cream); border-radius:20px; padding:2.5rem; border:1px solid rgba(0,0,0,0.06); }
+.reg-form h3 { font-weight:700; font-size:1.2rem; color:var(--c-navy); margin-bottom:1.5rem; }
+.form-group  { margin-bottom:1.2rem; }
+.form-group label { display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:6px; }
+.form-group input, .form-group select, .form-group textarea { width:100%; background:white; border:1.5px solid #D1D5DB; border-radius:10px; padding:11px 14px; font-family:var(--font-body); font-size:0.9rem; color:var(--c-text); outline:none; transition:border-color 0.2s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--c-gold); box-shadow:0 0 0 3px rgba(212,169,74,0.12); }
+.form-row    { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.form-submit { width:100%; background:var(--c-navy); color:white; border:none; padding:14px; border-radius:10px; font-family:var(--font-body); font-size:1rem; font-weight:700; cursor:pointer; transition:all 0.25s; margin-top:8px; }
+.form-submit:hover { background:#1A5FAF; transform:translateY(-1px); }
+.form-note   { font-size:0.78rem; color:var(--c-gray); text-align:center; margin-top:10px; }
+/* Loading spinner shown while form submits */
+.form-submit.loading { opacity:0.7; cursor:not-allowed; }
+
+/* ════════════════════════════════════════════════
+   📰 NEWS SECTION
+   ════════════════════════════════════════════════ */
+.news      { background:var(--c-cream); }
+.news-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
+.news-card { background:white; border-radius:16px; overflow:hidden; border:1px solid rgba(0,0,0,0.06); transition:all 0.3s; }
+.news-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+/* ════════════════════════════════════════════════
+   🖼️ NEWS CARD PHOTO
+   ════════════════════════════════════════════════
+   HOW TO ADD A PHOTO to a news card:
+   Find <div class="news-img"> and add:
+     <div class="news-img" style="background-image:url('photo.jpg');background-size:cover;background-position:center;font-size:0">
+*/
+.news-img     { aspect-ratio:16/9; background:linear-gradient(135deg,var(--c-navy) 0%,#1A5FAF 100%); display:flex; align-items:center; justify-content:center; font-size:2.5rem; }
+.news-body    { padding:1.5rem; }
+.news-date    { font-size:0.8rem; color:var(--c-gold); font-weight:600; margin-bottom:8px; }
+.news-title   { font-weight:700; color:var(--c-navy); font-size:1rem; margin-bottom:8px; line-height:1.4; }
+.news-excerpt { font-size:0.85rem; color:var(--c-gray); line-height:1.6; }
+.news-link    { display:inline-block; margin-top:12px; font-size:0.85rem; font-weight:600; color:var(--c-blue); text-decoration:none; }
+.news-link:hover { color:var(--c-gold); }
+
+/* ════════════════════════════════════════════════
+   🖼️ GALLERY SECTION
+   ════════════════════════════════════════════════ */
+.gallery      { background:white; }
+.gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.gallery-item { border-radius:12px; overflow:hidden; aspect-ratio:1; background:linear-gradient(135deg,var(--c-navy),#1A5FAF); display:flex; align-items:center; justify-content:center; font-size:2.5rem; cursor:pointer; transition:transform 0.3s; position:relative; }
+/* ════════════════════════════════════════════════
+   🖼️ GALLERY PHOTOS — HOW TO CHANGE:
+   Find each <div class="gallery-item"> and add:
+     style="background-image:url('your-photo.jpg');background-size:cover;background-position:center;font-size:0"
+   The first item is wider (spans 2 columns).
+   Add as many items as you want — they auto-arrange.
+*/
+.gallery-item:hover { transform:scale(1.02); }
+.gallery-item:nth-child(1) { grid-column:span 2; aspect-ratio:auto; height:220px; }
+.gallery-item-label { position:absolute; bottom:10px; left:10px; right:10px; background:rgba(11,30,61,0.72); border-radius:8px; padding:6px 10px; color:white; font-size:0.78rem; backdrop-filter:blur(4px); }
+
+/* ════════════════════════════════════════════════
+   🤝 PARTNERS SECTION
+   ════════════════════════════════════════════════ */
+.partners       { background:var(--c-cream); padding:4rem 1.5rem; }
+.partners-inner { max-width:1000px; margin:0 auto; text-align:center; }
+.partners-title { font-size:0.85rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--c-gray); margin-bottom:2rem; }
+.partners-logos { display:flex; flex-wrap:wrap; gap:1.5rem; align-items:center; justify-content:center; }
+/* Partner button — clicking opens their official website in a new tab */
+.partner-btn {
+  background:white; border:1px solid #E5E7EB; border-radius:12px;
+  padding:14px 24px; font-size:0.9rem; font-weight:700; color:var(--c-navy);
+  display:flex; align-items:center; gap:8px; min-width:130px; justify-content:center;
+  text-decoration:none; cursor:pointer;
+  transition:all 0.2s;
+}
+.partner-btn:hover { border-color:var(--c-gold); color:var(--c-gold); transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+
+/* ════════════════════════════════════════════════
+   ❓ FAQ SECTION
+   ════════════════════════════════════════════════ */
+.faq      { background:white; }
+.faq-list { max-width:760px; margin:0 auto; }
+.faq-item { border-bottom:1px solid var(--c-gray-light); }
+.faq-question { width:100%; background:none; border:none; cursor:pointer; font-family:var(--font-body); font-size:0.98rem; font-weight:600; color:var(--c-navy); text-align:left; padding:1.3rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; transition:color 0.2s; }
+.faq-question:hover { color:var(--c-gold); }
+.faq-arrow  { font-size:1.1rem; transition:transform 0.3s; flex-shrink:0; }
+.faq-answer { font-size:0.9rem; color:var(--c-gray); line-height:1.7; max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s ease; }
+.faq-item.open .faq-answer { max-height:300px; padding-bottom:1rem; }
+.faq-item.open .faq-arrow  { transform:rotate(180deg); }
+
+/* ════════════════════════════════════════════════
+   📞 CONTACTS SECTION
+   ════════════════════════════════════════════════ */
+.contacts      { background:var(--c-navy); }
+.contacts-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+.contacts .section-title    { color:white; }
+.contacts .section-subtitle { color:rgba(255,255,255,0.65); }
+.contact-list { margin-top:2rem; display:flex; flex-direction:column; gap:1rem; }
+.contact-item { display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.82); font-size:0.9rem; }
+.contact-icon { width:40px; height:40px; background:rgba(212,169,74,0.16); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.contact-item a { color:var(--c-gold); text-decoration:none; }
+.contact-item a:hover { text-decoration:underline; }
+.social-row { display:flex; gap:10px; margin-top:1.5rem; }
+.social-btn { width:42px; height:42px; background:rgba(255,255,255,0.10); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; text-decoration:none; color:white; transition:background 0.2s; }
+.social-btn:hover { background:var(--c-gold); }
+.contact-map-placeholder { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:3rem 2rem; text-align:center; color:rgba(255,255,255,0.7); }
+.map-address { font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.6); margin-top:0.5rem; }
+
+/* ════════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════════ */
+footer      { background:#060F1E; padding:3rem 1.5rem 2rem; color:rgba(255,255,255,0.5); }
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-top   { display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.08); margin-bottom:2rem; }
+.footer-brand p { font-size:0.85rem; line-height:1.7; color:rgba(255,255,255,0.5); margin-top:1rem; max-width:280px; }
+.footer-col h4  { font-size:0.85rem; font-weight:700; color:white; margin-bottom:1rem; }
+.footer-col ul  { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.footer-col ul a { font-size:0.83rem; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
+.footer-col ul a:hover { color:var(--c-gold); }
+.footer-bottom  { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:0.8rem; }
+
+/* ════════════════════════════════════════════════
+   MODALS (success & error popups)
+   ════════════════════════════════════════════════ */
+.modal-overlay { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.62); align-items:center; justify-content:center; padding:1rem; }
+.modal-overlay.show { display:flex; }
+.modal-box  { background:white; border-radius:20px; padding:3rem; text-align:center; max-width:420px; width:100%; }
+.modal-icon { font-size:4rem; margin-bottom:1rem; }
+.modal-box h3 { font-family:var(--font-display); font-size:1.5rem; color:var(--c-navy); margin-bottom:0.5rem; }
+.modal-box p  { color:var(--c-gray); font-size:0.9rem; margin-bottom:1.5rem; }
+.modal-close  { background:var(--c-navy); color:white; border:none; border-radius:10px; padding:12px 28px; font-family:var(--font-body); font-size:0.9rem; font-weight:600; cursor:pointer; }
+
+/* ════════════════════════════════════════════════
+   ANIMATIONS
+   ════════════════════════════════════════════════ */
+.fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+
+/* ════════════════════════════════════════════════
+   📱 RESPONSIVE — tablet & mobile
+   ════════════════════════════════════════════════ */
+@media (max-width:900px) {
+  .hero-inner { grid-template-columns:1fr; gap:3rem; text-align:center; }
+  .hero-meta  { justify-content:center; }
+  .hero-actions { justify-content:center; }
+  .about-grid, .reg-layout, .contacts-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .about-badge { bottom:-10px; right:0; }
+  .stats-grid  { grid-template-columns:repeat(2,1fr); }
+  .footer-top  { grid-template-columns:1fr; gap:2rem; }
+  .gallery-grid { grid-template-columns:repeat(2,1fr); }
+  .gallery-item:nth-child(1) { grid-column:span 2; }
+  .form-row { grid-template-columns:1fr; }
+}
+@media (max-width:640px) {
+  .nav-links { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:68px; left:0; right:0; background:rgba(11,30,61,0.98); padding:1rem; gap:0; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .hamburger { display:flex; }
+  section  { padding:4rem 1.2rem; }
+  .stats-grid   { grid-template-columns:repeat(2,1fr); }
+  .speakers-grid { grid-template-columns:repeat(2,1fr); }
+  .gallery-grid  { grid-template-columns:1fr; }
+  .gallery-item:nth-child(1) { grid-column:1; height:auto; }
+  .hero-visual   { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+  🔵 NAVIGATION BAR
+  ════════════════════════════════════════════════════════════
+  HOW TO ADD A NEW NAV LINK:
+    Copy one <li> line and change the href="#section-id" and text.
+  HOW TO RENAME A LINK:
+    Change both data-ru="..." and data-en="..." values.
+  ════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <!-- ★ SITE LOGO TEXT — change "Youth Forum 2026" and subtitle below -->
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-badge">CA<br>EU</div>
+      <div class="nav-logo-text">
+        Youth Forum 2026
+        <span>Samarkand, Uzbekistan</span>
+      </div>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Navigation links — data-ru = Russian, data-en = English -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"        data-ru="О форуме"    data-en="About">О форуме</a></li>
+      <li><a href="#program"      data-ru="Программа"   data-en="Program">Программа</a></li>
+      <li><a href="#speakers"     data-ru="Спикеры"     data-en="Speakers">Спикеры</a></li>
+      <li><a href="#gallery"      data-ru="Галерея"     data-en="Gallery">Галерея</a></li>
+      <li><a href="#news"         data-ru="Новости"     data-en="News">Новости</a></li>
+      <li><a href="#contacts"     data-ru="Контакты"    data-en="Contacts">Контакты</a></li>
+      <li><a href="#registration" class="nav-cta" data-ru="Регистрация" data-en="Register">Регистрация</a></li>
+    </ul>
+
+    <!-- Language switch buttons -->
+    <div class="nav-lang">
+      <button class="active" onclick="setLang('ru',event)">RU</button>
+      <button onclick="setLang('en',event)">EN</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  🌟 HERO SECTION
+  ════════════════════════════════════════════════════════════
+  BACKGROUND PHOTO: change the URL in CSS .hero above (search for ★★★ CHANGE PHOTO HERE ★★★)
+
+  TO CHANGE HERO TEXT:
+    Edit the data-ru="..." and data-en="..." attributes.
+    The text inside the tags is the default (Russian) displayed text.
+
+  TO CHANGE DATE/LOCATION in the badge:
+    Find data-ru="Самарканд, Узбекистан · 13–14 августа 2026" and update it.
+  ════════════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-stars"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+
+      <!-- Small badge at top of hero -->
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        <!-- ★ CHANGE DATE & CITY HERE -->
+        <span data-ru="Самарканд, Узбекистан · 13–14 августа 2026"
+              data-en="Samarkand, Uzbekistan · August 13–14, 2026">
+          Самарканд, Узбекистан · 13–14 августа 2026
+        </span>
+      </div>
+
+      <!-- ★ MAIN HEADLINE — change all three lines -->
+      <h1 class="hero-title">
+        <span data-ru="Центральноазиатско‑" data-en="Central Asia –">Центральноазиатско‑</span><br>
+        <span class="accent" data-ru="Европейский" data-en="European Union">Европейский</span><br>
+        <span data-ru="Молодёжный форум" data-en="Youth Forum">Молодёжный форум</span>
+      </h1>
+
+      <!-- ★ HERO SUBTITLE — change this description -->
+      <p class="hero-subtitle"
+         data-ru="Площадка для диалога молодых лидеров Центральной Азии и Европейского Союза. Два дня дискуссий, нетворкинга и конкретных решений для будущего региона."
+         data-en="A platform for dialogue between young leaders of Central Asia and the European Union. Two days of discussions, networking and concrete solutions for the future of the region.">
+        Площадка для диалога молодых лидеров Центральной Азии и Европейского Союза. Два дня дискуссий, нетворкинга и конкретных решений для будущего региона.
+      </p>
+
+      <!-- ★ THREE INFO PILLS — change location, date, number of countries -->
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-icon">📍</div>
+          <span data-ru="Самарканд, Узбекистан" data-en="Samarkand, Uzbekistan">Самарканд, Узбекистан</span>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-icon">🗓</div>
+          <span data-ru="13–14 августа 2026" data-en="August 13–14, 2026">13–14 августа 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-icon">🌐</div>
+          <span data-ru="6 стран" data-en="6 countries">6 стран</span>
+        </div>
+      </div>
+
+      <!-- ★ BUTTONS — href="#registration" scrolls to form; href="#program" scrolls to schedule -->
+      <div class="hero-actions">
+        <a href="#registration" class="btn-primary"
+           data-ru="Зарегистрироваться" data-en="Register Now">Зарегистрироваться</a>
+        <a href="#program" class="btn-secondary"
+           data-ru="Программа форума" data-en="View Program">Программа форума</a>
+      </div>
+    </div>
+
+    <!-- Right-side info card (hidden on mobile) -->
+    <div class="hero-visual">
+      <div class="hero-card">
+        <!-- Country flags — add/remove flag divs to match participating countries -->
+        <div class="hero-card-flags">
+          <div class="flag flag-uz"></div>
+          <div class="flag flag-eu">EU</div>
+          <div class="flag flag-kz"></div>
+          <div class="flag flag-kg"></div>
+          <div class="flag flag-tj"></div>
+          <div class="flag flag-tm"></div>
+        </div>
+        <!-- ★ BIG NUMBER — change "300+" to your participant count -->
+        <div class="hero-card-stat">
+          <div class="num">300+</div>
+          <div class="label" data-ru="участников из 6 стран" data-en="participants from 6 countries">участников из 6 стран</div>
+        </div>
+        <hr class="hero-card-divider">
+        <!-- ★ DATE BOXES — change day numbers 13 / 14 if dates change -->
+        <div class="hero-card-dates">
+          <div class="hero-date-box">
+            <div class="day">13</div>
+            <div class="month" data-ru="Август · День 1" data-en="August · Day 1">Август · День 1</div>
+          </div>
+          <div class="hero-date-box">
+            <div class="day">14</div>
+            <div class="month" data-ru="Август · День 2" data-en="August · Day 2">Август · День 2</div>
+          </div>
+        </div>
+        <!-- Countdown timer — target date set in JavaScript below -->
+        <div class="countdown">
+          <div class="countdown-label" data-ru="До начала форума" data-en="Until forum starts">До начала форума</div>
+          <div class="countdown-nums">
+            <div class="countdown-unit"><div class="n" id="cd-d">--</div><div class="l" data-ru="дней" data-en="days">дней</div></div>
+            <div class="countdown-unit"><div class="n" id="cd-h">--</div><div class="l" data-ru="часов" data-en="hrs">часов</div></div>
+            <div class="countdown-unit"><div class="n" id="cd-m">--</div><div class="l" data-ru="минут" data-en="min">минут</div></div>
+            <div class="countdown-unit"><div class="n" id="cd-s">--</div><div class="l" data-ru="секунд" data-en="sec">секунд</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><div class="scroll-arrow"></div></div>
+  <!-- Bottom fade into navy stats bar -->
+  <svg style="position:absolute;bottom:-1px;left:0;right:0;z-index:2;display:block"
+       viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 60 C360 0 1080 0 1440 60 L1440 60 L0 60 Z" fill="#0D2240"/>
+  </svg>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  📊 STATS BAR — four key numbers
+  ════════════════════════════════════════════════════════════
+  HOW TO CHANGE: edit the number inside <div class="stat-num">
+  and the label text in data-ru / data-en.
+  ════════════════════════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <!-- ★ STAT 1 -->
+    <div class="stat-item fade-up">
+      <div class="stat-num">300+</div>
+      <div class="stat-label" data-ru="Участников" data-en="Participants">Участников</div>
+    </div>
+    <!-- ★ STAT 2 -->
+    <div class="stat-item fade-up">
+      <div class="stat-num">6</div>
+      <div class="stat-label" data-ru="Стран-участниц" data-en="Participating Countries">Стран-участниц</div>
+    </div>
+    <!-- ★ STAT 3 -->
+    <div class="stat-item fade-up">
+      <div class="stat-num">20+</div>
+      <div class="stat-label" data-ru="Спикеров и экспертов" data-en="Speakers & Experts">Спикеров и экспертов</div>
+    </div>
+    <!-- ★ STAT 4 -->
+    <div class="stat-item fade-up">
+      <div class="stat-num">2</div>
+      <div class="stat-label" data-ru="Дня интенсивной работы" data-en="Days of Intensive Work">Дня интенсивной работы</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  ℹ️ ABOUT SECTION
+  ════════════════════════════════════════════════════════════
+  PHOTO: see CSS comment above (.about-img-placeholder)
+  HOW TO CHANGE PHOTO HERE IN HTML:
+    Find <div class="about-img-placeholder"> below and add:
+      style="background-image:url('YOUR_URL');background-size:cover;background-position:center"
+    Then delete the inner <div class="about-img-text"> block.
+  ════════════════════════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <!-- LEFT: photo block -->
+      <div class="about-image-block fade-up">
+        <!-- ★★★ ABOUT PHOTO — add style="background-image:url('...')" here to set a real photo ★★★ -->
+        <div class="about-img-placeholder">
+          <!-- Delete this block when you add a real photo above -->
+          <div class="about-img-text">
+            <div class="big">🏛</div>
+            <p data-ru="Самарканд — жемчужина Центральной Азии"
+               data-en="Samarkand — Pearl of Central Asia">Самарканд — жемчужина Центральной Азии</p>
+          </div>
+        </div>
+        <div class="about-badge">
+          <!-- ★ YEAR BADGE — change 2026 if needed -->
+          <div class="b-num">2026</div>
+          <div class="b-label" data-ru="Год проведения" data-en="Forum Year">Год проведения</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: text block -->
+      <div class="fade-up">
+        <div class="section-label" data-ru="О ФОРУМЕ" data-en="ABOUT">О ФОРУМЕ</div>
+        <!-- ★ ABOUT HEADING -->
+        <h2 class="section-title"
+            data-ru="Мост между двумя регионами"
+            data-en="A Bridge Between Two Regions">Мост между двумя регионами</h2>
+        <!-- ★ ABOUT DESCRIPTION -->
+        <p class="section-subtitle"
+           data-ru="CA–EU Youth Forum — ежегодная международная платформа для молодых лидеров до 35 лет из Центральной Азии и ЕС. Форум создаёт пространство для диалога, обмена опытом и формирования нового поколения лидеров."
+           data-en="CA–EU Youth Forum is an annual international platform for young leaders under 35 from Central Asia and the EU. The forum creates space for dialogue, experience sharing, and shaping the next generation of leaders.">
+          CA–EU Youth Forum — ежегодная международная платформа для молодых лидеров до 35 лет из Центральной Азии и ЕС. Форум создаёт пространство для диалога, обмена опытом и формирования нового поколения лидеров.
+        </p>
+
+        <!-- ★ FEATURE ITEMS — copy/paste a .feature-item block to add more -->
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-text">
+              <h4 data-ru="Диалог и партнёрство" data-en="Dialogue & Partnership">Диалог и партнёрство</h4>
+              <p data-ru="Обсуждение актуальных вопросов CA–ЕС сотрудничества" data-en="Discussion of current CA–EU cooperation issues">Обсуждение актуальных вопросов CA–ЕС сотрудничества</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💡</div>
+            <div class="feature-text">
+              <h4 data-ru="Инновации и устойчивое развитие" data-en="Innovation & Sustainability">Инновации и устойчивое развитие</h4>
+              <p data-ru="Зелёный переход, цифровизация и молодёжное предпринимательство" data-en="Green transition, digitalisation, and youth entrepreneurship">Зелёный переход, цифровизация и молодёжное предпринимательство</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌐</div>
+            <div class="feature-text">
+              <h4 data-ru="Нетворкинг и стипендии" data-en="Networking & Scholarships">Нетворкинг и стипендии</h4>
+              <p data-ru="Профессиональные связи и гранты для лучших участников" data-en="Professional connections and grants for top participants">Профессиональные связи и гранты для лучших участников</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  📅 PROGRAM SECTION
+  ════════════════════════════════════════════════════════════
+  HOW TO ADD A NEW DAY:
+    1. Add a new tab button:
+         <button class="tab-btn" id="tab3" onclick="switchDay(3)" data-ru="📅 15 августа — День 3" data-en="📅 Aug 15 — Day 3">📅 15 августа — День 3</button>
+    2. Add a new day block after day2:
+         <div class="program-day" id="day3">
+           ... copy program-item blocks from day1 and edit ...
+         </div>
+
+  HOW TO ADD A NEW SESSION within a day:
+    Copy one <div class="program-item"> block and edit:
+      - .program-time → the time (e.g. 10:30)
+      - .program-tag class → tag-keynote / tag-panel / tag-workshop / tag-break / tag-networking
+      - h4 data-ru / data-en → session title
+      - p data-ru / data-en → session description
+
+  HOW TO CHANGE THE DATE shown on the tab button:
+    Edit data-ru="..." and data-en="..." on the <button class="tab-btn">
+  ════════════════════════════════════════════════════════════ -->
+<section class="program" id="program">
+  <div class="section-inner">
+    <div class="text-center" style="margin-bottom:3rem">
+      <div class="section-label" data-ru="ПРОГРАММА" data-en="PROGRAM">ПРОГРАММА</div>
+      <h2 class="section-title" data-ru="Два дня насыщенной работы" data-en="Two Days of Intensive Work">Два дня насыщенной работы</h2>
+    </div>
+
+    <!-- Day selector tabs — add a new button for each additional day -->
+    <div class="program-tabs">
+      <button class="tab-btn active" id="tab1" onclick="switchDay(1)"
+              data-ru="📅 13 августа — День 1" data-en="📅 August 13 — Day 1">📅 13 августа — День 1</button>
+      <button class="tab-btn"        id="tab2" onclick="switchDay(2)"
+              data-ru="📅 14 августа — День 2" data-en="📅 August 14 — Day 2">📅 14 августа — День 2</button>
+      <!-- ADD DAY 3 BUTTON HERE if needed -->
+    </div>
+
+    <!-- ══ DAY 1 ══ -->
+    <div class="program-day active" id="day1">
+      <!-- SESSION TEMPLATE — copy this block to add more sessions:
+      <div class="program-item fade-up">
+        <div class="program-time">HH:MM</div>
+        <div class="program-content">
+          <span class="program-tag tag-TYPE" data-ru="ТЕГ" data-en="TAG">ТЕГ</span>
+          <h4 data-ru="Название" data-en="Title">Название</h4>
+          <p  data-ru="Описание" data-en="Description">Описание</p>
+        </div>
+      </div>
+      -->
+      <div class="program-item fade-up">
+        <div class="program-time">09:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-break" data-ru="Регистрация" data-en="Registration">Регистрация</span>
+          <h4 data-ru="Регистрация участников и приветственный кофе" data-en="Participant Registration & Welcome Coffee">Регистрация участников и приветственный кофе</h4>
+          <p  data-ru="Фойе, Конгресс-центр Самарканд" data-en="Foyer, Samarkand Congress Center">Фойе, Конгресс-центр Самарканд</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">10:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-keynote" data-ru="Открытие" data-en="Opening">Открытие</span>
+          <h4 data-ru="Официальное открытие форума" data-en="Official Opening Ceremony">Официальное открытие форума</h4>
+          <p  data-ru="Приветственные слова официальных представителей Узбекистана и ЕС" data-en="Welcome remarks from Uzbekistan and EU official representatives">Приветственные слова официальных представителей Узбекистана и ЕС</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">11:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-keynote" data-ru="Keynote" data-en="Keynote">Keynote</span>
+          <h4 data-ru="Молодёжь и глобальные вызовы 2030" data-en="Youth & Global Challenges 2030">Молодёжь и глобальные вызовы 2030</h4>
+          <p  data-ru="Ключевые выступления приглашённых спикеров" data-en="Keynote speeches by invited speakers">Ключевые выступления приглашённых спикеров</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">13:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-break" data-ru="Обед" data-en="Lunch">Обед</span>
+          <h4 data-ru="Обеденный перерыв и нетворкинг" data-en="Lunch Break & Networking">Обеденный перерыв и нетворкинг</h4>
+          <p  data-ru="Кулинарный опыт Центральной Азии" data-en="Central Asian culinary experience">Кулинарный опыт Центральной Азии</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">14:30</div>
+        <div class="program-content">
+          <span class="program-tag tag-workshop" data-ru="Воркшопы" data-en="Workshops">Воркшопы</span>
+          <h4 data-ru="Параллельные воркшопы по 6 тематическим трекам" data-en="Parallel Workshops on 6 Thematic Tracks">Параллельные воркшопы по 6 тематическим трекам</h4>
+          <p  data-ru="Зелёный переход · Цифровизация · Молодёжная политика · Культура · Предпринимательство · Здоровье" data-en="Green Transition · Digitalisation · Youth Policy · Culture · Entrepreneurship · Health">Зелёный переход · Цифровизация · Молодёжная политика · Культура · Предпринимательство · Здоровье</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">17:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-networking" data-ru="Культура" data-en="Culture">Культура</span>
+          <h4 data-ru="Экскурсия по Регистану и историческому центру Самарканда" data-en="Registan & Samarkand Historical Centre Tour">Экскурсия по Регистану</h4>
+          <p  data-ru="Культурная программа для всех участников" data-en="Cultural programme for all participants">Культурная программа для всех участников</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">19:30</div>
+        <div class="program-content">
+          <span class="program-tag tag-networking" data-ru="Гала-вечер" data-en="Gala Dinner">Гала-вечер</span>
+          <h4 data-ru="Welcome Gala Dinner — ужин в духе Шёлкового пути" data-en="Welcome Gala Dinner — Silk Road Style">Welcome Gala Dinner</h4>
+          <p  data-ru="Музыка, танцы и неформальное общение участников" data-en="Music, dancing and informal networking">Музыка, танцы и неформальное общение</p>
+        </div>
+      </div>
+    </div><!-- end day1 -->
+
+    <!-- ══ DAY 2 ══ -->
+    <div class="program-day" id="day2">
+      <div class="program-item fade-up">
+        <div class="program-time">09:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-workshop" data-ru="Мастер-класс" data-en="Master Class">Мастер-класс</span>
+          <h4 data-ru="Утренние мастер-классы: лидерство, ораторское искусство, дизайн-мышление" data-en="Morning Master Classes: Leadership, Public Speaking, Design Thinking">Утренние мастер-классы</h4>
+          <p  data-ru="Лидерство · Публичные выступления · Дизайн-мышление" data-en="Leadership · Public Speaking · Design Thinking">Лидерство · Публичные выступления · Дизайн-мышление</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">11:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-panel" data-ru="Панель" data-en="Panel">Панель</span>
+          <h4 data-ru="Панельная дискуссия: CA–EU — партнёрство будущего" data-en="Panel Discussion: CA–EU Partnership of the Future">Панельная дискуссия: CA–EU — партнёрство будущего</h4>
+          <p  data-ru="Дипломаты, министры, бизнес и гражданское общество" data-en="Diplomats, ministers, business and civil society">Дипломаты, министры, бизнес и гражданское общество</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">13:00</div>
+        <div class="program-content">
+          <span class="program-tag tag-keynote" data-ru="Питч" data-en="Pitch">Питч</span>
+          <h4 data-ru="Питч-сессия молодёжных проектов: 20 финалистов" data-en="Youth Project Pitch Session: 20 Finalists">Питч-сессия молодёжных проектов</h4>
+          <p  data-ru="20 лучших проектов перед экспертным жюри" data-en="20 top projects before expert jury">20 лучших проектов перед экспертным жюри</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">15:30</div>
+        <div class="program-content">
+          <span class="program-tag tag-keynote" data-ru="Церемония" data-en="Ceremony">Церемония</span>
+          <h4 data-ru="Награждение победителей и вручение сертификатов" data-en="Award Ceremony & Certificates">Награждение победителей и вручение сертификатов</h4>
+          <p  data-ru="Гранты, стипендии и призы от партнёров" data-en="Grants, scholarships and prizes from partners">Гранты, стипендии и призы от партнёров</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">16:30</div>
+        <div class="program-content">
+          <span class="program-tag tag-panel" data-ru="Декларация" data-en="Declaration">Декларация</span>
+          <h4 data-ru="Принятие Самаркандской декларации молодёжи 2026" data-en="Samarkand Youth Declaration 2026">Принятие Самаркандской декларации молодёжи 2026</h4>
+          <p  data-ru="Совместный документ молодёжи Центральной Азии и ЕС" data-en="Joint document by CA and EU youth">Совместный документ молодёжи двух регионов</p>
+        </div>
+      </div>
+      <div class="program-item fade-up">
+        <div class="program-time">17:30</div>
+        <div class="program-content">
+          <span class="program-tag tag-networking" data-ru="Закрытие" data-en="Closing">Закрытие</span>
+          <h4 data-ru="Торжественное закрытие форума" data-en="Closing Ceremony">Торжественное закрытие форума</h4>
+          <p  data-ru="Прощальные слова, фотосессия, прощальный нетворкинг" data-en="Closing remarks, photo session, farewell networking">Прощальные слова, фотосессия, нетворкинг</p>
+        </div>
+      </div>
+    </div><!-- end day2 -->
+
+    <!-- ADD DAY 3 BLOCK HERE (copy day2 block above and change id="day3") -->
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  🎤 SPEAKERS SECTION
+  ════════════════════════════════════════════════════════════
+  HOW TO ADD A NEW SPEAKER:
+    Copy one <div class="speaker-card"> block and edit:
+      - .speaker-photo → add real photo URL (see comment in CSS above)
+      - .speaker-name  → full name
+      - .speaker-role  → title/position (data-ru and data-en)
+      - .speaker-country → flag emoji + country name
+
+  HOW TO ADD A REAL PHOTO for a speaker:
+    Change:  <div class="speaker-photo">🎓</div>
+    To:      <div class="speaker-photo" style="background-image:url('https://your-link/photo.jpg');background-size:cover;background-position:center top;font-size:0">&nbsp;</div>
+
+  HOW TO REMOVE A SPEAKER: delete the entire <div class="speaker-card"> block.
+  ════════════════════════════════════════════════════════════ -->
+<section class="speakers" id="speakers">
+  <div class="section-inner">
+    <div class="text-center" style="margin-bottom:3rem">
+      <div class="section-label" data-ru="СПИКЕРЫ" data-en="SPEAKERS">СПИКЕРЫ</div>
+      <h2 class="section-title" data-ru="Эксперты и лидеры мнений" data-en="Experts & Opinion Leaders">Эксперты и лидеры мнений</h2>
+      <p class="section-subtitle" data-ru="Более 20 спикеров из Центральной Азии, ЕС и международных организаций." data-en="More than 20 speakers from Central Asia, the EU and international organisations.">
+        Более 20 спикеров из Центральной Азии, ЕС и международных организаций.
+      </p>
+    </div>
+
+    <div class="speakers-grid">
+
+      <!-- ══ SPEAKER 1 ══ change name, role, country, photo ══ -->
+      <div class="speaker-card">
+        <!-- ★ PHOTO: replace emoji with real photo URL (see instructions above) -->
+        <div class="speaker-photo">🎓</div>
+        <div class="speaker-body">
+          <div class="speaker-name">Dr. Anna Kowalski</div><!-- ★ NAME -->
+          <div class="speaker-role" data-ru="Директор по внешним связям ЕС" data-en="Director of EU External Relations">Директор по внешним связям ЕС</div><!-- ★ ROLE -->
+          <div class="speaker-country">🇪🇺 <span data-ru="Европейский Союз" data-en="European Union">Европейский Союз</span></div><!-- ★ COUNTRY FLAG+NAME -->
+        </div>
+      </div>
+
+      <!-- ══ SPEAKER 2 ══ -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background:linear-gradient(135deg,#1eb6e8,#003399)">🏛</div>
+        <div class="speaker-body">
+          <div class="speaker-name" data-ru="Акбар Тошматов" data-en="Akbar Toshmatov">Акбар Тошматов</div>
+          <div class="speaker-role" data-ru="Заместитель министра молодёжи и спорта Узбекистана" data-en="Deputy Minister of Youth & Sports, Uzbekistan">Заместитель министра молодёжи и спорта</div>
+          <div class="speaker-country">🇺🇿 <span data-ru="Узбекистан" data-en="Uzbekistan">Узбекистан</span></div>
+        </div>
+      </div>
+
+      <!-- ══ SPEAKER 3 ══ -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background:linear-gradient(135deg,#00AFCA,#0D2240)">💡</div>
+        <div class="speaker-body">
+          <div class="speaker-name">Prof. Mira Seitkali</div>
+          <div class="speaker-role" data-ru="Эксперт по климатической политике" data-en="Climate Policy Expert">Эксперт по климатической политике</div>
+          <div class="speaker-country">🇰🇿 <span data-ru="Казахстан" data-en="Kazakhstan">Казахстан</span></div>
+        </div>
+      </div>
+
+      <!-- ══ SPEAKER 4 ══ -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background:linear-gradient(135deg,#E8112D,#600010)">🌍</div>
+        <div class="speaker-body">
+          <div class="speaker-name">Tobias Ehrmann</div>
+          <div class="speaker-role" data-ru="Директор фонда EU-CA Relations" data-en="Director, EU-CA Relations Foundation">Директор фонда EU-CA Relations</div>
+          <div class="speaker-country">🇩🇪 <span data-ru="Германия" data-en="Germany">Германия</span></div>
+        </div>
+      </div>
+
+      <!-- ══ SPEAKER 5 ══ -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background:linear-gradient(135deg,#30A956,#0D2240)">📊</div>
+        <div class="speaker-body">
+          <div class="speaker-name" data-ru="Гульнора Рашидова" data-en="Gulnora Rashidova">Гульнора Рашидова</div>
+          <div class="speaker-role" data-ru="Исследователь, ПРООН Узбекистан" data-en="Researcher, UNDP Uzbekistan">Исследователь, ПРООН Узбекистан</div>
+          <div class="speaker-country">🇺🇿 <span data-ru="Узбекистан" data-en="Uzbekistan">Узбекистан</span></div>
+        </div>
+      </div>
+
+      <!-- ══ SPEAKER 6 ══ -->
+      <div class="speaker-card">
+        <div class="speaker-photo" style="background:linear-gradient(135deg,#C30017,#3B0009)">🎤</div>
+        <div class="speaker-body">
+          <div class="speaker-name">Ainur Bekova</div>
+          <div class="speaker-role" data-ru="Молодёжный активист, TEDx Speaker" data-en="Youth Activist, TEDx Speaker">Молодёжный активист, TEDx Speaker</div>
+          <div class="speaker-country">🇰🇬 <span data-ru="Кыргызстан" data-en="Kyrgyzstan">Кыргызстан</span></div>
+        </div>
+      </div>
+
+      <!-- ADD MORE SPEAKERS: copy a speaker-card block above and paste here -->
+
+    </div><!-- end speakers-grid -->
+
+    <div style="text-align:center;margin-top:2.5rem">
+      <!-- ★ Change this announcement text when the full speaker list is ready -->
+      <p style="color:var(--c-gray);font-size:0.9rem"
+         data-ru="Полный список спикеров будет объявлен в июне 2026 года"
+         data-en="Full list of speakers to be announced in June 2026">
+        Полный список спикеров будет объявлен в июне 2026 года
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  🖼️ PHOTO GALLERY SECTION
+  ════════════════════════════════════════════════════════════
+  HOW TO ADD YOUR PHOTOS:
+    For each <div class="gallery-item"> add this style attribute:
+      style="background-image:url('YOUR_PHOTO_URL');background-size:cover;background-position:center;font-size:0"
+    and delete the emoji inside the div.
+
+  The FIRST item is wider (spans 2 columns) — best for landscape photos.
+  All other items are square — best for portrait or square photos.
+
+  HOW TO ADD MORE PHOTOS: copy any gallery-item div and paste before the closing </div>
+  HOW TO REMOVE A PHOTO: delete the entire gallery-item div.
+  ════════════════════════════════════════════════════════════ -->
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <div class="text-center" style="margin-bottom:3rem">
+      <div class="section-label" data-ru="ГАЛЕРЕЯ" data-en="GALLERY">ГАЛЕРЕЯ</div>
+      <h2 class="section-title" data-ru="Форум в лицах" data-en="Forum in Pictures">Форум в лицах</h2>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem">
+    <div class="gallery-grid">
+
+      <!-- ★★★ GALLERY PHOTO 1 (WIDE — spans 2 columns) ★★★
+           Replace the style below with your own photo URL:
+           style="background-image:url('https://YOUR-LINK.jpg');background-size:cover;background-position:center;font-size:0" -->
+      <div class="gallery-item" style="background:linear-gradient(135deg,#0D2240,#1A5FAF)">
+        🎤
+        <div class="gallery-item-label" data-ru="Пленарная сессия 2025" data-en="Plenary Session 2025">Пленарная сессия 2025</div>
+      </div>
+
+      <!-- ★★★ GALLERY PHOTO 2 ★★★ -->
+      <div class="gallery-item" style="background:linear-gradient(135deg,#1A5FAF,#0D2240)">🤝</div>
+
+      <!-- ★★★ GALLERY PHOTO 3 ★★★ -->
+      <div class="gallery-item" style="background:linear-gradient(135deg,#D4A94A,#7A5C10)">🌟</div>
+
+      <!-- ★★★ GALLERY PHOTO 4 ★★★ -->
+      <div class="gallery-item" style="background:linear-gradient(135deg,#0D3060,#0D2240)">📸</div>
+
+      <!-- ★★★ GALLERY PHOTO 5 ★★★ -->
+      <div class="gallery-item" style="background:linear-gradient(135deg,#1eb6e8,#003399)">🌍</div>
+
+      <!-- ★★★ GALLERY PHOTO 6 ★★★ -->
+      <div class="gallery-item" style="background:linear-gradient(135deg,#30A956,#0D2240)">🏛</div>
+
+      <!-- ADD MORE PHOTOS HERE: copy any gallery-item div above and paste here -->
+
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2rem;padding:0 1.5rem">
+    <!-- ★ Link this button to your Instagram/Facebook album when ready -->
+    <a href="#" class="btn-primary" data-ru="Все фотографии →" data-en="All Photos →">Все фотографии →</a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  📰 NEWS SECTION
+  ════════════════════════════════════════════════════════════
+  HOW TO ADD A NEWS ARTICLE:
+    Copy one <div class="news-card"> block and:
+      - Change news-date text
+      - Change news-title (data-ru and data-en)
+      - Change news-excerpt (data-ru and data-en)
+      - Change the href on news-link to the actual article URL
+      - To add a photo: change <div class="news-img"> to:
+          <div class="news-img" style="background-image:url('photo.jpg');background-size:cover;background-position:center;font-size:0">
+
+  HOW TO REMOVE: delete the entire news-card div.
+  ════════════════════════════════════════════════════════════ -->
+<section class="news" id="news">
+  <div class="section-inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem">
+      <div>
+        <div class="section-label" data-ru="НОВОСТИ" data-en="NEWS">НОВОСТИ</div>
+        <h2 class="section-title" data-ru="Актуальные новости" data-en="Latest News">Актуальные новости</h2>
+      </div>
+      <!-- ★ Change href="#" to link to a dedicated news page or social media -->
+      <a href="#" style="font-size:0.9rem;font-weight:600;color:var(--c-blue);text-decoration:none"
+         data-ru="Все новости →" data-en="All news →">Все новости →</a>
+    </div>
+    <div class="news-grid">
+
+      <!-- ══ NEWS CARD 1 ══ -->
+      <div class="news-card fade-up">
+        <!-- ★ PHOTO: add style="background-image:url('...')..." to add an image -->
+        <div class="news-img">📰</div>
+        <div class="news-body">
+          <div class="news-date" data-ru="12 мая 2026" data-en="May 12, 2026">12 мая 2026</div><!-- ★ DATE -->
+          <h3 class="news-title"
+              data-ru="Открыта регистрация на CA–EU Youth Forum 2026"
+              data-en="Registration open for CA–EU Youth Forum 2026">Открыта регистрация на CA–EU Youth Forum 2026</h3><!-- ★ TITLE -->
+          <p class="news-excerpt"
+             data-ru="Принимаются заявки от молодых лидеров из 6 стран. Дедлайн — 30 июня 2026 года."
+             data-en="Applications accepted from young leaders from 6 countries. Deadline — June 30, 2026.">
+            Принимаются заявки от молодых лидеров из 6 стран. Дедлайн — 30 июня 2026 года.
+          </p><!-- ★ TEXT -->
+          <a href="#registration" class="news-link" data-ru="Подать заявку →" data-en="Apply Now →">Подать заявку →</a><!-- ★ LINK -->
+        </div>
+      </div>
+
+      <!-- ══ NEWS CARD 2 ══ -->
+      <div class="news-card fade-up">
+        <div class="news-img">🤝</div>
+        <div class="news-body">
+          <div class="news-date" data-ru="28 апреля 2026" data-en="April 28, 2026">28 апреля 2026</div>
+          <h3 class="news-title"
+              data-ru="Делегация ЕС посетила Самарканд для подготовки форума"
+              data-en="EU Delegation visited Samarkand to prepare for the Forum">Делегация ЕС посетила Самарканд</h3>
+          <p class="news-excerpt"
+             data-ru="Переговоры о логистике и программе форума с участием местных партнёров."
+             data-en="Negotiations on forum logistics and programme with local partners.">
+            Переговоры о логистике и программе форума с участием местных партнёров.
+          </p>
+          <a href="#" class="news-link" data-ru="Читать далее →" data-en="Read more →">Читать далее →</a>
+        </div>
+      </div>
+
+      <!-- ══ NEWS CARD 3 ══ -->
+      <div class="news-card fade-up">
+        <div class="news-img">🌱</div>
+        <div class="news-body">
+          <div class="news-date" data-ru="15 апреля 2026" data-en="April 15, 2026">15 апреля 2026</div>
+          <h3 class="news-title"
+              data-ru="Тема форума 2026: «Зелёный переход и молодёжь»"
+              data-en="Forum 2026 Theme: 'Green Transition & Youth'">Тема форума: «Зелёный переход и молодёжь»</h3>
+          <p class="news-excerpt"
+             data-ru="Основная тема посвящена роли молодёжи в переходе к устойчивой экономике региона."
+             data-en="The main theme focuses on youth's role in the transition to a sustainable economy.">
+            Основная тема посвящена роли молодёжи в переходе к устойчивой экономике региона.
+          </p>
+          <a href="#" class="news-link" data-ru="Читать далее →" data-en="Read more →">Читать далее →</a>
+        </div>
+      </div>
+
+      <!-- ADD MORE NEWS CARDS HERE: copy a news-card block above and paste -->
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  🤝 PARTNERS / ORGANISERS SECTION
+  ════════════════════════════════════════════════════════════
+  EACH PARTNER BUTTON links to their official website.
+
+  HOW TO CHANGE A PARTNER LINK:
+    Find the <a class="partner-btn" href="..."> tag
+    and replace the href="URL" with the correct website address.
+
+  HOW TO ADD A NEW PARTNER:
+    Copy one <a class="partner-btn"> block and paste inside .partners-logos
+    Change: emoji, name, and href URL.
+
+  HOW TO REMOVE A PARTNER: delete the entire <a class="partner-btn"> block.
+  ════════════════════════════════════════════════════════════ -->
+<div class="partners">
+  <div class="partners-inner">
+    <div class="partners-title" data-ru="ОРГАНИЗАТОРЫ И ПАРТНЁРЫ" data-en="ORGANISERS & PARTNERS">ОРГАНИЗАТОРЫ И ПАРТНЁРЫ</div>
+    <div class="partners-logos">
+
+      <!-- ★ PARTNER 1: European Union
+           href → change to official EU delegation page for Uzbekistan -->
+      <a class="partner-btn"
+         href="https://www.eeas.europa.eu/uzbekistan" target="_blank" rel="noopener">
+        🇪🇺 European Union
+      </a>
+
+      <!-- ★ PARTNER 2: Uzbekistan Government
+           href → change to official Ministry of Youth website -->
+      <a class="partner-btn"
+         href="https://yoshlar.uz" target="_blank" rel="noopener">
+        🇺🇿 Yoshlar Ittifoqi
+      </a>
+
+      <!-- ★ PARTNER 3: UNDP
+           href → change to UNDP Uzbekistan page -->
+      <a class="partner-btn"
+         href="https://www.undp.org/uzbekistan" target="_blank" rel="noopener">
+        🌐 UNDP
+      </a>
+
+      <!-- ★ PARTNER 4: UNESCO
+           href → change to UNESCO Central Asia page -->
+      <a class="partner-btn"
+         href="https://www.unesco.org/en/countries/uz" target="_blank" rel="noopener">
+        📚 UNESCO
+      </a>
+
+      <!-- ★ PARTNER 5: OSCE
+           href → change to OSCE regional page -->
+      <a class="partner-btn"
+         href="https://www.osce.org/central-asia" target="_blank" rel="noopener">
+        🤝 OSCE
+      </a>
+
+      <!-- ★ PARTNER 6: GIZ
+           href → change to GIZ Uzbekistan page -->
+      <a class="partner-btn"
+         href="https://www.giz.de/en/worldwide/uzbekistan.html" target="_blank" rel="noopener">
+        🌱 GIZ
+      </a>
+
+      <!-- ★ PARTNER 7: New Uzbekistan University (your institution) -->
+      <a class="partner-btn"
+         href="https://newuu.uz" target="_blank" rel="noopener">
+        🎓 New UU
+      </a>
+
+      <!-- ADD MORE PARTNERS HERE: copy a partner-btn block above and paste -->
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  ❓ FAQ SECTION
+  ════════════════════════════════════════════════════════════
+  HOW TO ADD A NEW FAQ:
+    Copy one <div class="faq-item"> block and paste before </div class="faq-list">
+    Change: question text (data-ru / data-en in button span)
+            answer text  (data-ru / data-en in div.faq-answer)
+
+  HOW TO REMOVE: delete the entire faq-item div.
+  ════════════════════════════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <div class="text-center" style="margin-bottom:3rem">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title" data-ru="Часто задаваемые вопросы" data-en="Frequently Asked Questions">Часто задаваемые вопросы</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-ru="Кто может подать заявку?" data-en="Who can apply?">Кто может подать заявку?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer"
+             data-ru="Форум открыт для молодых лидеров от 18 до 35 лет из Узбекистана, Казахстана, Кыргызстана, Таджикистана, Туркменистана и стран ЕС."
+             data-en="The forum is open to young leaders aged 18–35 from Uzbekistan, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and EU member states.">
+          Форум открыт для молодых лидеров от 18 до 35 лет из Узбекистана, Казахстана, Кыргызстана, Таджикистана, Туркменистана и стран ЕС.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-ru="Сколько стоит участие?" data-en="How much does participation cost?">Сколько стоит участие?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer"
+             data-ru="Участие в форуме бесплатное для всех отобранных участников. Лучшие кандидаты могут получить стипендию, покрывающую проезд и проживание."
+             data-en="Forum participation is free for all selected participants. Top candidates may receive a scholarship covering travel and accommodation.">
+          Участие в форуме бесплатное для всех отобранных участников. Лучшие кандидаты могут получить стипендию, покрывающую проезд и проживание.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-ru="На каком языке проходит форум?" data-en="What language is the forum in?">На каком языке проходит форум?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer"
+             data-ru="Рабочие языки — русский и английский. Синхронный перевод будет доступен на всех пленарных сессиях."
+             data-en="Working languages are Russian and English. Simultaneous interpretation is available at all plenary sessions.">
+          Рабочие языки — русский и английский. Синхронный перевод будет доступен на всех пленарных сессиях.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-ru="Нужна ли виза для въезда в Узбекистан?" data-en="Do I need a visa for Uzbekistan?">Нужна ли виза для въезда в Узбекистан?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer"
+             data-ru="Граждане большинства стран ЕС въезжают без визы — до 30 дней. Для остальных участников оргкомитет поможет с приглашением для посольства."
+             data-en="Citizens of most EU countries enter visa-free for up to 30 days. For others, the organising committee will assist with an embassy invitation.">
+          Граждане большинства стран ЕС въезжают без визы — до 30 дней. Для остальных оргкомитет поможет с приглашением для посольства.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span data-ru="Как связаться с организаторами?" data-en="How do I contact the organisers?">Как связаться с организаторами?</span>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer"
+             data-ru="Пишите на почту info@cayouthforum.uz или звоните +998 90 031 97 02 (Асроров А.А.). Отвечаем в рабочие дни с 9:00 до 18:00 (UTC+5)."
+             data-en="Email info@cayouthforum.uz or call +998 90 031 97 02 (A. Asrorov). We respond on working days 09:00–18:00 (UTC+5).">
+          Пишите на почту info@cayouthforum.uz или звоните +998 90 031 97 02. Отвечаем в рабочие дни с 9:00 до 18:00 (UTC+5).
+        </div>
+      </div>
+
+      <!-- ADD MORE FAQ ITEMS HERE -->
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  📋 REGISTRATION / APPLICATION FORM
+  ════════════════════════════════════════════════════════════
+  FORM SETUP — HOW SUBMISSIONS REACH YOUR EMAIL:
+  This form uses Formspree (free service, no server needed).
+
+  SETUP STEPS (one-time, 5 minutes):
+    1. Go to https://formspree.io and sign up (free)
+    2. Click "New Form" and give it a name like "CA-EU Forum Applications"
+    3. Enter your email: a.asrorov@newuu.uz
+    4. Copy your form endpoint — it looks like: https://formspree.io/f/XXXXXXXX
+    5. Replace "https://formspree.io/f/YOUR_FORM_ID" in the <form action="..."> below
+    6. Done! All submissions go to a.asrorov@newuu.uz AND appear on your Formspree dashboard
+
+  DASHBOARD:
+    • Log in at formspree.io/dashboard
+    • See all submissions, filter, export to Excel/CSV
+    • Add team members who can also view submissions
+
+  HOW TO ADD A NEW FIELD:
+    Copy a .form-group block and paste it. Change the:
+      - label text (data-ru / data-en)
+      - input name="..." attribute (this is the column name in exports)
+      - input type (text / email / number / tel / select / textarea)
+
+  HOW TO CHANGE THE DEADLINE DATE:
+    Find "30 июня 2026" in .d-date and change it.
+  ════════════════════════════════════════════════════════════ -->
+<section class="registration" id="registration">
+  <div class="section-inner">
+    <div class="reg-layout">
+
+      <!-- LEFT: benefits list -->
+      <div class="reg-info fade-up">
+        <div class="section-label" data-ru="РЕГИСТРАЦИЯ" data-en="REGISTRATION">РЕГИСТРАЦИЯ</div>
+        <h2 class="section-title"
+            data-ru="Стань участником форума"
+            data-en="Become a Forum Participant">Стань участником форума</h2>
+        <p class="section-subtitle"
+           data-ru="Форум открыт для молодых лидеров от 18 до 35 лет из стран Центральной Азии и ЕС. Участие бесплатное для отобранных кандидатов."
+           data-en="Open to young leaders aged 18–35 from Central Asia and the EU. Free for selected candidates.">
+          Форум открыт для молодых лидеров от 18 до 35 лет из стран ЦА и ЕС. Участие бесплатное для отобранных кандидатов.
+        </p>
+        <!-- ★ BENEFITS LIST — add/remove <li> items as needed -->
+        <ul class="reg-benefits">
+          <li data-ru="Бесплатное участие в двухдневной программе" data-en="Free participation in the two-day programme">Бесплатное участие в двухдневной программе</li>
+          <li data-ru="Официальный сертификат участника" data-en="Official participation certificate">Официальный сертификат участника</li>
+          <li data-ru="Возможность получить стипендию (проезд + проживание)" data-en="Opportunity for a travel + accommodation scholarship">Возможность получить стипендию (проезд + проживание)</li>
+          <li data-ru="Нетворкинг с лидерами из 6 стран" data-en="Networking with leaders from 6 countries">Нетворкинг с лидерами из 6 стран</li>
+          <li data-ru="Культурная программа в Самарканде" data-en="Cultural programme in Samarkand">Культурная программа в Самарканде</li>
+          <li data-ru="Рекомендательные письма от организаторов" data-en="Recommendation letters from organisers">Рекомендательные письма от организаторов</li>
+        </ul>
+        <!-- ★ DEADLINE — change the date here -->
+        <div class="reg-deadline">
+          <div class="d-label" data-ru="Дедлайн подачи заявок" data-en="Application Deadline">Дедлайн подачи заявок</div>
+          <div class="d-date" data-ru="30 июня 2026" data-en="June 30, 2026">30 июня 2026</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: application form -->
+      <div class="reg-form fade-up">
+        <h3 data-ru="Подать заявку" data-en="Apply Now">Подать заявку</h3>
+
+        <!-- ════════════════════════════════════════════════
+          FORM — connects to Formspree → sends to a.asrorov@newuu.uz
+          ★★★ REPLACE "YOUR_FORM_ID" with your Formspree form ID ★★★
+          Example: action="https://formspree.io/f/xpznkrvy"
+        ════════════════════════════════════════════════ -->
+        <form id="appForm"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST">
+
+          <!-- Hidden field — tells Formspree where to send replies -->
+          <input type="hidden" name="_replyto" value="a.asrorov@newuu.uz">
+          <!-- Email subject line in your inbox -->
+          <input type="hidden" name="_subject" value="New Application — CA–EU Youth Forum 2026">
+          <!-- After submit, do NOT redirect to Formspree page (we handle it with JS) -->
+          <input type="hidden" name="_next" value="same-page">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label data-ru="Имя *" data-en="First Name *">Имя *</label>
+              <input type="text" name="first_name" placeholder="Иван" required>
+            </div>
+            <div class="form-group">
+              <label data-ru="Фамилия *" data-en="Last Name *">Фамилия *</label>
+              <input type="text" name="last_name" placeholder="Иванов" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-ru="Email *" data-en="Email *">Email *</label>
+            <input type="email" name="email" placeholder="ivan@example.com" required>
+          </div>
+
+          <!-- ★ PHONE FIELD — optional, participants can enter WhatsApp number -->
+          <div class="form-group">
+            <label data-ru="Телефон / WhatsApp *" data-en="Phone / WhatsApp *">Телефон / WhatsApp *</label>
+            <input type="tel" name="phone" placeholder="+998 90 123 45 67" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label data-ru="Страна *" data-en="Country *">Страна *</label>
+              <select name="country" required>
+                <option value="" data-ru="Выберите страну" data-en="Select country">Выберите страну</option>
+                <!-- ★ ADD/REMOVE countries as needed -->
+                <option value="Узбекистан">Узбекистан / Uzbekistan</option>
+                <option value="Казахстан">Казахстан / Kazakhstan</option>
+                <option value="Кыргызстан">Кыргызстан / Kyrgyzstan</option>
+                <option value="Таджикистан">Таджикистан / Tajikistan</option>
+                <option value="Туркменистан">Туркменистан / Turkmenistan</option>
+                <option value="EU">Страна ЕС / EU Country</option>
+                <option value="Other">Другая / Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-ru="Возраст *" data-en="Age *">Возраст *</label>
+              <input type="number" name="age" min="18" max="35" placeholder="25" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-ru="Организация / Университет" data-en="Organisation / University">Организация / Университет</label>
+            <input type="text" name="organisation" placeholder="Ташкентский государственный университет">
+          </div>
+
+          <!-- ★ MOTIVATION LETTER — participants write 500 words here -->
+          <div class="form-group">
+            <label data-ru="Мотивационное письмо (до 500 слов) *" data-en="Motivation Letter (up to 500 words) *">Мотивационное письмо (до 500 слов) *</label>
+            <textarea name="motivation" rows="5" style="resize:vertical" required
+                      placeholder="Расскажите, почему вы хотите участвовать и что планируете привнести в форум..."></textarea>
+          </div>
+
+          <!-- ★ OPTIONAL: add extra fields here following the same pattern -->
+
+          <div class="form-group" style="display:flex;align-items:flex-start;gap:10px">
+            <input type="checkbox" id="agree" name="privacy_agreed" value="yes" style="width:auto;margin-top:3px" required>
+            <label for="agree" style="font-size:0.82rem;font-weight:400;color:var(--c-gray)"
+                   data-ru="Я согласен(а) с политикой обработки персональных данных *"
+                   data-en="I agree to the personal data processing policy *">
+              Я согласен(а) с политикой обработки персональных данных *
+            </label>
+          </div>
+
+          <!-- Submit button — JS handles Formspree AJAX submission -->
+          <button type="submit" class="form-submit" id="submitBtn"
+                  data-ru="Отправить заявку →" data-en="Submit Application →">Отправить заявку →</button>
+
+          <p class="form-note"
+             data-ru="Результаты отбора будут направлены на ваш email до 15 июля 2026"
+             data-en="Selection results will be sent to your email by July 15, 2026">
+            Результаты отбора будут направлены на email до 15 июля 2026
+          </p>
+          <!-- ★ NOTE: actual submissions go to a.asrorov@newuu.uz via Formspree -->
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  📞 CONTACTS SECTION
+  ════════════════════════════════════════════════════════════
+  HOW TO CHANGE CONTACT INFO:
+    Search this file for the actual value (e.g. "+998 90 031 97 02")
+    and replace it everywhere it appears.
+
+  SOCIAL MEDIA LINKS:
+    Find <a class="social-btn" href="..."> and change href to your profile URL.
+    The emoji/letter inside is just a visual indicator — you can change it.
+
+  GOOGLE MAPS LINK:
+    Find href="https://maps.google.com..." and replace with your venue's map link.
+    (Right-click location in Google Maps → Share → Copy link)
+  ════════════════════════════════════════════════════════════ -->
+<section class="contacts" id="contacts">
+  <div class="section-inner">
+    <div class="contacts-grid">
+
+      <!-- LEFT: contact details -->
+      <div class="fade-up">
+        <div class="section-label" style="color:var(--c-gold)" data-ru="КОНТАКТЫ" data-en="CONTACTS">КОНТАКТЫ</div>
+        <h2 class="section-title" data-ru="Свяжитесь с нами" data-en="Get in Touch">Свяжитесь с нами</h2>
+        <p class="section-subtitle"
+           data-ru="Вопросы об участии, партнёрстве или аккредитации СМИ — напишите нам."
+           data-en="Questions about participation, partnership or media accreditation — write to us.">
+          Вопросы об участии, партнёрстве или аккредитации СМИ — напишите нам.
+        </p>
+
+        <div class="contact-list">
+
+          <!-- ★ EMAIL 1 — general inquiries -->
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.52);margin-bottom:2px"
+                   data-ru="Общие вопросы / заявки" data-en="General / Applications">Общие вопросы / заявки</div>
+              <!-- ★★★ YOUR EMAIL — change both the href and the visible text ★★★ -->
+              <a href="mailto:a.asrorov@newuu.uz">a.asrorov@newuu.uz</a>
+            </div>
+          </div>
+
+          <!-- ★ EMAIL 2 — info address (same destination) -->
+          <div class="contact-item">
+            <div class="contact-icon">📩</div>
+            <div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.52);margin-bottom:2px"
+                   data-ru="Информация о форуме" data-en="Forum Information">Информация о форуме</div>
+              <!-- ★★★ CHANGE THIS EMAIL if you set up info@cayouthforum.uz ★★★ -->
+              <a href="mailto:a.asrorov@newuu.uz">info@cayouthforum.uz</a>
+            </div>
+          </div>
+
+          <!-- ★★★ PHONE — your number ★★★ -->
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.52);margin-bottom:2px"
+                   data-ru="Телефон (Асроров А.А.)" data-en="Phone (A. Asrorov)">Телефон (Асроров А.А.)</div>
+              <a href="tel:+998900319702">+998 90 031 97 02</a>
+            </div>
+          </div>
+
+          <!-- ★ VENUE ADDRESS — change when confirmed -->
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.52);margin-bottom:2px"
+                   data-ru="Место проведения" data-en="Venue">Место проведения</div>
+              <span data-ru="Конгресс-центр Самарканд, Узбекистан"
+                    data-en="Samarkand Congress Centre, Uzbekistan">Конгресс-центр Самарканд, Узбекистан</span>
+            </div>
+          </div>
+
+          <!-- ★ WORKING HOURS -->
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.52);margin-bottom:2px"
+                   data-ru="Рабочее время" data-en="Working Hours">Рабочее время</div>
+              <span data-ru="Пн–Пт: 09:00–18:00 (UTC+5, Ташкент)"
+                    data-en="Mon–Fri: 09:00–18:00 (UTC+5, Tashkent)">Пн–Пт: 09:00–18:00 (UTC+5)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL MEDIA BUTTONS
+             ★ Change href="..." to your actual social media profile URLs -->
+        <div class="social-row">
+          <!-- Telegram -->
+          <a class="social-btn" href="https://t.me/cayouthforum" target="_blank" rel="noopener" title="Telegram">✈</a>
+          <!-- Instagram -->
+          <a class="social-btn" href="https://instagram.com/cayouthforum" target="_blank" rel="noopener" title="Instagram">📷</a>
+          <!-- LinkedIn -->
+          <a class="social-btn" href="https://linkedin.com/company/cayouthforum" target="_blank" rel="noopener" title="LinkedIn">in</a>
+          <!-- Facebook -->
+          <a class="social-btn" href="https://facebook.com/cayouthforum" target="_blank" rel="noopener" title="Facebook">f</a>
+          <!-- YouTube -->
+          <a class="social-btn" href="https://youtube.com/@cayouthforum" target="_blank" rel="noopener" title="YouTube">▶</a>
+          <!-- ADD MORE: copy a social-btn and change href + title -->
+        </div>
+      </div>
+
+      <!-- RIGHT: venue info + map link -->
+      <div class="contact-map-placeholder fade-up">
+        <div style="font-size:3rem;margin-bottom:1rem">🗺</div>
+        <h4 style="color:white;margin-bottom:1rem"
+            data-ru="Место проведения" data-en="Venue">Место проведения</h4>
+        <!-- ★ CHANGE VENUE ADDRESS HERE -->
+        <div class="map-address"
+             data-ru="Конгресс-центр Самарканд<br>ул. Амира Темура, 1<br>Самарканд, 140100, Узбекистан"
+             data-en="Samarkand Congress Centre<br>1 Amir Temur Street<br>Samarkand 140100, Uzbekistan">
+          Конгресс-центр Самарканд<br>ул. Амира Темура, 1<br>Самарканд, 140100, Узбекистан
+        </div>
+        <!-- ★ CHANGE THIS LINK to your venue's Google Maps share URL -->
+        <a href="https://maps.google.com/?q=Samarkand+Congress+Centre+Uzbekistan"
+           target="_blank" rel="noopener"
+           style="display:inline-block;margin-top:1.5rem;padding:10px 20px;background:var(--c-gold);color:var(--c-navy);border-radius:8px;font-weight:700;font-size:0.9rem;text-decoration:none"
+           data-ru="Открыть на карте" data-en="Open on Map">Открыть на карте</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  FOOTER
+  ════════════════════════════════════════════════════════════
+  HOW TO CHANGE:
+    - Logo text: find "Youth Forum 2026" in the footer div below
+    - Footer description: find the <p data-ru="..."> block
+    - Footer links: edit href and text in the <ul> lists
+    - Copyright year: find "© 2026"
+  ════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem">
+          <div style="width:36px;height:36px;background:var(--c-gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--c-navy);line-height:1.2;text-align:center">CA<br>EU</div>
+          <!-- ★ CHANGE FOOTER LOGO NAME -->
+          <span style="color:white;font-weight:600;font-size:1rem">Youth Forum 2026</span>
+        </div>
+        <!-- ★ CHANGE FOOTER DESCRIPTION -->
+        <p data-ru="Центральноазиатско-Европейский молодёжный форум — ежегодная международная платформа для лидеров двух регионов."
+           data-en="CA–EU Youth Forum — an annual international platform for leaders from two regions.">
+          Центральноазиатско-Европейский молодёжный форум — ежегодная международная платформа для лидеров двух регионов.
+        </p>
+      </div>
+      <!-- Navigation column -->
+      <div class="footer-col">
+        <h4 data-ru="Навигация" data-en="Navigation">Навигация</h4>
+        <ul>
+          <li><a href="#about"        data-ru="О форуме"   data-en="About">О форуме</a></li>
+          <li><a href="#program"      data-ru="Программа"  data-en="Program">Программа</a></li>
+          <li><a href="#speakers"     data-ru="Спикеры"    data-en="Speakers">Спикеры</a></li>
+          <li><a href="#gallery"      data-ru="Галерея"    data-en="Gallery">Галерея</a></li>
+          <li><a href="#news"         data-ru="Новости"    data-en="News">Новости</a></li>
+        </ul>
+      </div>
+      <!-- Participation column -->
+      <div class="footer-col">
+        <h4 data-ru="Участие" data-en="Participate">Участие</h4>
+        <ul>
+          <li><a href="#registration" data-ru="Регистрация"                data-en="Registration">Регистрация</a></li>
+          <li><a href="#faq"          data-ru="FAQ"                         data-en="FAQ">FAQ</a></li>
+          <li><a href="#contacts"     data-ru="Контакты"                    data-en="Contacts">Контакты</a></li>
+          <!-- ★ Link privacy policy page when you create one -->
+          <li><a href="#"             data-ru="Политика конфиденциальности" data-en="Privacy Policy">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <!-- ★ CHANGE YEAR if needed -->
+      <span>© 2026 CA–EU Youth Forum.
+        <span data-ru="Все права защищены." data-en="All rights reserved.">Все права защищены.</span>
+      </span>
+      <!-- ★ CONTACT in footer -->
+      <span>
+        📧 <a href="mailto:a.asrorov@newuu.uz" style="color:rgba(255,255,255,0.4);text-decoration:none">a.asrorov@newuu.uz</a>
+        &nbsp;|&nbsp;
+        🇺🇿 <span data-ru="Самарканд, Узбекистан" data-en="Samarkand, Uzbekistan">Самарканд, Узбекистан</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  ✅ SUCCESS MODAL — shown after form submits successfully
+  ════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="modal-icon">✅</div>
+    <h3 data-ru="Заявка отправлена!" data-en="Application Submitted!">Заявка отправлена!</h3>
+    <p data-ru="Спасибо! Ваша заявка получена. Результаты отбора придут на ваш email до 15 июля 2026."
+       data-en="Thank you! Your application has been received. Selection results will be sent to your email by July 15, 2026.">
+      Спасибо! Ваша заявка получена. Результаты отбора придут на email до 15 июля 2026.
+    </p>
+    <button class="modal-close" onclick="closeModal('successModal')"
+            data-ru="Закрыть" data-en="Close">Закрыть</button>
+  </div>
+</div>
+
+<!-- ❌ ERROR MODAL — shown if form submission fails -->
+<div class="modal-overlay" id="errorModal">
+  <div class="modal-box">
+    <div class="modal-icon">⚠️</div>
+    <h3 data-ru="Ошибка отправки" data-en="Submission Error">Ошибка отправки</h3>
+    <p data-ru="Что-то пошло не так. Пожалуйста, напишите напрямую на a.asrorov@newuu.uz или позвоните +998 90 031 97 02."
+       data-en="Something went wrong. Please email a.asrorov@newuu.uz directly or call +998 90 031 97 02.">
+      Что-то пошло не так. Напишите напрямую на a.asrorov@newuu.uz или позвоните +998 90 031 97 02.
+    </p>
+    <button class="modal-close" onclick="closeModal('errorModal')"
+            data-ru="Закрыть" data-en="Close">Закрыть</button>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+  JAVASCRIPT
+  ════════════════════════════════════════════════════════════ -->
+<script>
+
+/* ──────────────────────────────────────────────
+   ★ COUNTDOWN TIMER
+   Change the date '2026-08-13T09:00:00+05:00' to your forum start date/time.
+   Format: 'YYYY-MM-DDTHH:MM:SS+HH:MM'  (+05:00 = Tashkent time)
+   ────────────────────────────────────────────── */
+function updateCountdown() {
+  const target = new Date('2026-08-13T09:00:00+05:00'); /* ★ CHANGE DATE */
+  const diff   = target - new Date();
+  if (diff <= 0) {
+    ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00');
+    return;
+  }
+  document.getElementById('cd-d').textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
+  document.getElementById('cd-h').textContent = String(Math.floor(diff % 86400000 / 3600000)).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(Math.floor(diff % 3600000 / 60000)).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(Math.floor(diff % 60000 / 1000)).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ──────────────────────────────────────────────
+   LANGUAGE SWITCHER (RU / EN)
+   All elements with data-ru / data-en attributes get switched.
+   ────────────────────────────────────────────── */
+let currentLang = 'ru';
+function setLang(lang, e) {
+  currentLang = lang;
+  document.querySelectorAll('[data-ru]').forEach(el => {
+    const t = el.getAttribute('data-' + lang);
+    if (t) el.innerHTML = t;
+  });
+  document.querySelectorAll('.nav-lang button').forEach(b => b.classList.remove('active'));
+  if (e && e.target) e.target.classList.add('active');
+}
+
+/* ──────────────────────────────────────────────
+   PROGRAM DAY TABS
+   switchDay(n) shows dayN and activates tabN.
+   Adding day 3: just call switchDay(3) from the new tab button.
+   ────────────────────────────────────────────── */
+function switchDay(n) {
+  document.querySelectorAll('.program-day').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('day' + n).classList.add('active');
+  document.getElementById('tab' + n).classList.add('active');
+}
+
+/* ──────────────────────────────────────────────
+   FAQ ACCORDION
+   Clicking a question opens it; clicking again closes it.
+   ────────────────────────────────────────────── */
+function toggleFaq(btn) {
+  const item    = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ──────────────────────────────────────────────
+   MODAL HELPERS
+   ────────────────────────────────────────────── */
+function closeModal(id) {
+  document.getElementById(id).classList.remove('show');
+}
+// Close modal by clicking outside it
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('show');
+  });
+});
+
+/* ──────────────────────────────────────────────
+   FORM SUBMISSION via Formspree (AJAX — no page reload)
+   Sends all form data to a.asrorov@newuu.uz
+   Shows success or error modal depending on result.
+   ────────────────────────────────────────────── */
+document.getElementById('appForm').addEventListener('submit', async function(e) {
+  e.preventDefault(); /* Prevent default page reload */
+
+  const btn  = document.getElementById('submitBtn');
+  const form = e.target;
+
+  /* Basic validation */
+  const email = form.querySelector('[name="email"]').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert(currentLang === 'ru' ? 'Введите корректный email адрес' : 'Please enter a valid email address');
+    return;
+  }
+
+  /* Show loading state */
+  btn.textContent = currentLang === 'ru' ? 'Отправка...' : 'Sending...';
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  try {
+    /* Send to Formspree */
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      /* SUCCESS — show modal, reset form */
+      form.reset();
+      document.getElementById('successModal').classList.add('show');
+    } else {
+      /* Formspree returned an error */
+      document.getElementById('errorModal').classList.add('show');
+    }
+  } catch (err) {
+    /* Network error */
+    document.getElementById('errorModal').classList.add('show');
+  } finally {
+    /* Restore button */
+    btn.textContent = currentLang === 'ru' ? 'Отправить заявку →' : 'Submit Application →';
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  }
+});
+
+/* ──────────────────────────────────────────────
+   MOBILE HAMBURGER MENU
+   ────────────────────────────────────────────── */
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+/* Close mobile menu when a nav link is clicked */
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+/* ──────────────────────────────────────────────
+   NAV BAR — becomes fully opaque on scroll
+   ────────────────────────────────────────────── */
+window.addEventListener('scroll', function() {
+  document.getElementById('mainNav').style.background =
+    window.scrollY > 50 ? 'rgba(13,34,64,0.98)' : 'rgba(13,34,64,0.94)';
+});
+
+/* ──────────────────────────────────────────────
+   SCROLL ANIMATIONS — elements fade in when visible
+   Add class "fade-up" to any element to enable the animation.
+   ────────────────────────────────────────────── */
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+/* ──────────────────────────────────────────────
+   SMOOTH SCROLL — fix offset so sections aren't hidden behind the 68px navbar
+   ────────────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({ top: target.offsetTop - 75, behavior: 'smooth' });
+    }
+  });
+});
+
+</script>
+</body>
+</html>
+HTMLEOF
+echo "Done — $(wc -l < /home/claude/cayouthforum/ca-eu-forum-2026.html) lines"
